@@ -7,11 +7,12 @@ async function pair(value, primary, secondary) {
   if (
     typeof primary === "string" &&
     typeof secondary === "string" &&
-    result.hasOwnProperty(primary.toUpperCase()) &&
-    result.hasOwnProperty(secondary.toUpperCase()) &&
-    typeof value === "number"
+    typeof value === "number" &&
+    value > 0
   ) {
-    let convert = result.rates[secondaryValue] / result.rates[primaryValue];
+    let convert =
+      result.rates[secondary.toLocaleUpperCase()] /
+      result.rates[primary.toLocaleUpperCase()];
     return convert * value;
   } else {
     return { error: { message: "Invalid currency" } };

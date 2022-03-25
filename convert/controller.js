@@ -10,10 +10,14 @@ async function pair(value, primary, secondary) {
     typeof value === "number" &&
     value > 0
   ) {
+    let primaryValue = primary.toLocaleUpperCase();
+    let secondaryValue = secondary.toLocaleUpperCase();
     let convert =
-      result.rates[secondary.toLocaleUpperCase()] /
-      result.rates[primary.toLocaleUpperCase()];
-    return convert * value;
+      (result.rates[secondaryValue] / result.rates[primaryValue]) * value;
+    let response = {};
+    response[primaryValue] = value;
+    response[secondaryValue] = convert;
+    return response;
   } else {
     return { error: { message: "Invalid currency" } };
   }

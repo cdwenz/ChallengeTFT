@@ -8,6 +8,7 @@ router.get("/", (req, res) => {
 
 router.get("/lastest", async(req, res) => {
   let data = await dateString();
+  data = await data.data;
   res.json(data);
 });
 

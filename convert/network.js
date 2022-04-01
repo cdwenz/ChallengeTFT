@@ -19,10 +19,3 @@ router.get("/pair", async (req, res) => {
 });
 
 module.exports = router;
-
-// EUR USD
-// EUR ARS
-// USD ARS
-// EUR BRL
-// USD BRL
-// BRL ARS
